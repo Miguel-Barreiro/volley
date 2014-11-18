@@ -40,10 +40,10 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void hitTopLeft(){
-		this.scoreLeft += 1;
+		this.scoreRight += 1;
 	}
 	public void hitBotLeft(){
-		this.scoreLeft += 2;
+		this.scoreRight += 2;
 	}
 	public void hitTopRight(){
 		this.scoreLeft += 1;
