@@ -9,7 +9,7 @@ public class PlayerInputController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_playerController = GetComponent<playerController>();
+	//	_playerController = GetComponent<playerController>();
 	}
 	
 	// Update is called once per frame

@@ -12,9 +12,23 @@ public class Controller : MonoBehaviour {
 	public GameObject rightTopTarget;
 	public GameObject rightBotTarget;
 
+	public GameObject leftField;
+	public GameObject rightField;
+
+	public GameObject ballTemplate;
+
+
 	// Use this for initialization
 	void Start () {
-	
+		this.resetBall();
+	}
+
+	private void resetBall(){
+		if ( ball != null){
+			Destroy(ball);
+		}
+		ball = (GameObject)Instantiate(ballTemplate);
+		ball.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +51,27 @@ public class Controller : MonoBehaviour {
 		}else if ( target == rightBotTarget){
 			this.hitBotRight();
 		}
+		resetBall();
 	}
+
+
+	public void handleFieldCollision(GameObject field){
+		if ( field == leftField ){
+			this.ballFallLeft();
+		}else if ( field == rightField ){
+			this.ballFallRight();
+		}
+		resetBall();
+	}
+
+	public void ballFallLeft(){
+		this.scoreRight += 3;
+	}
+
+	public void ballFallRight(){
+		this.scoreLeft += 3;
+	}
+
 
 	public void hitTopLeft(){
 		this.scoreRight += 1;
@@ -54,4 +88,6 @@ public class Controller : MonoBehaviour {
 
 	private int scoreLeft = 0;
 	private int scoreRight = 0;
+
+	private GameObject ball;
 }
