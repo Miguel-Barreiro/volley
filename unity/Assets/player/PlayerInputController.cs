@@ -17,7 +17,7 @@ public class PlayerInputController : MonoBehaviour {
 	
 	}
 
-	void OnMouseDown(){
+	void OnMouseUp(){
 		_playerController.jump();
 	}
 
