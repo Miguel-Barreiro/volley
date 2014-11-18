@@ -50,6 +50,7 @@
      <Compile Include="Assets\ball\shadowControl.cs" />
      <Compile Include="Assets\player\PlayerInputController.cs" />
      <Compile Include="Assets\player\playerController.cs" />
+     <Compile Include="Assets\wall\TargetController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
