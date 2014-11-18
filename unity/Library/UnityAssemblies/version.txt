@@ -1,0 +1,2 @@
+4.6.0b20:1.9.8.0
+/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll
