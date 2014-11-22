@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerController : MonoBehaviour {
 
-	public float jumpForce = 600.0f;
+	public float jumpForce = 300.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +32,10 @@ public class playerController : MonoBehaviour {
 		if(Input.touchCount > 0 && isGrounded){
 			Vector2 currentPositionScreen = Camera.main.WorldToScreenPoint(transform.position);
 
+			Touch[] myTouches = Input.touches;
 			for( int i = 0; i < Input.touchCount; i++){
-				Touch touch = Input.GetTouch(i);
+				//Touch touch = Input.GetTouch(i);
+				Touch touch = myTouches[i];
 				if ( (currentPositionScreen.x > Screen.width / 2 && touch.position.x < Screen.width / 2 ) || 
 				    ( currentPositionScreen.x < Screen.width / 2 && touch.position.x < Screen.width / 2)){
 
