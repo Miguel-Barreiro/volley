@@ -5,6 +5,7 @@ using System.Collections;
 public class playerController : MonoBehaviour {
 
 	public float jumpForce = 300.0f;
+	public float speed = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class playerController : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (isGrounded)
-			body.MovePosition(Vector3.Lerp(transform.position, target, Time.deltaTime));
+			body.MovePosition(Vector3.Lerp(transform.position, target, Time.deltaTime * speed));
 	}
 
 	public void setGrounded(bool grounded){
@@ -33,10 +34,19 @@ public class playerController : MonoBehaviour {
 			Vector2 currentPositionScreen = Camera.main.WorldToScreenPoint(transform.position);
 
 			Touch[] myTouches = Input.touches;
-			for( int i = 0; i < Input.touchCount; i++){
+			for( int i = 0; i < myTouches.Length; i++){
 				//Touch touch = Input.GetTouch(i);
+
+/*
+				Debug.Log(" tcurrentPositionScreen.x > Screen.width = " + tcurrentPositionScreen.x > Screen.width);
+				Debug.Log(" touch.position.x > Screen.width / 2 = " + touch.position.x > Screen.width / 2);
+				Debug.Log(" tcurrentPositionScreen.x < Screen.width / 2 = " + currentPositionScreen.x < Screen.width / 2);
+				Debug.Log(" touch.position.x < Screen.width / 2 = " + touch.position.x < Screen.width / 2);
+*/
 				Touch touch = myTouches[i];
-				if ( (currentPositionScreen.x > Screen.width / 2 && touch.position.x < Screen.width / 2 ) || 
+				Debug.Log(touch.fingerId);
+
+				if ( (currentPositionScreen.x > Screen.width / 2 && touch.position.x > Screen.width / 2 ) || 
 				    ( currentPositionScreen.x < Screen.width / 2 && touch.position.x < Screen.width / 2)){
 
 					if ( touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began ){
