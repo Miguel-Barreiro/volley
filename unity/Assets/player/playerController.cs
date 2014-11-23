@@ -36,27 +36,27 @@ public class playerController : MonoBehaviour {
 			Touch[] myTouches = Input.touches;
 			for( int i = 0; i < myTouches.Length; i++){
 				//Touch touch = Input.GetTouch(i);
-
-/*
-				Debug.Log(" tcurrentPositionScreen.x > Screen.width = " + tcurrentPositionScreen.x > Screen.width);
-				Debug.Log(" touch.position.x > Screen.width / 2 = " + touch.position.x > Screen.width / 2);
-				Debug.Log(" tcurrentPositionScreen.x < Screen.width / 2 = " + currentPositionScreen.x < Screen.width / 2);
-				Debug.Log(" touch.position.x < Screen.width / 2 = " + touch.position.x < Screen.width / 2);
-*/
 				Touch touch = myTouches[i];
-				Debug.Log(touch.fingerId);
+/*
+				Debug.Log(" tcurrentPositionScreen.x > Screen.width = " + (currentPositionScreen.x > Screen.width));
+				Debug.Log(" touch.position.x > Screen.width / 2 = " + (touch.position.x > Screen.width / 2));
+				Debug.Log(" tcurrentPositionScreen.x < Screen.width / 2 = " + (currentPositionScreen.x < Screen.width / 2));
+				Debug.Log(" touch.position.x < Screen.width / 2 = " + (touch.position.x < Screen.width / 2));
 
+				Debug.Log(touch.fingerId);
+*/
 				if ( (currentPositionScreen.x > Screen.width / 2 && touch.position.x > Screen.width / 2 ) || 
-				    ( currentPositionScreen.x < Screen.width / 2 && touch.position.x < Screen.width / 2)){
+				    	( currentPositionScreen.x < Screen.width / 2 && touch.position.x < Screen.width / 2)){
 
 					if ( touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began ){
 						Vector3 target = Camera.main.ScreenToWorldPoint(touch.position);
 						this.action(target);
 						fingerId = touch.fingerId;
-					}else if( touch.phase == TouchPhase.Ended && this.isGrounded){
+					}/*else if( touch.phase == TouchPhase.Ended && this.isGrounded){
 						this.jump();
 						this.isGrounded = false;
 					}
+					*/
 				}
 			}
 		}

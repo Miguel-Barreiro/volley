@@ -20,13 +20,16 @@ public class Controller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine("resetBall");
+		StartCoroutine("spawnBall");
 	}
-
-	IEnumerator resetBall(){
+	IEnumerator spawnBall(){
 		Debug.Log("reset ");
 		yield return new WaitForSeconds(1f);
 		Debug.Log("reset 2");
+		this.resetBall();
+	}
+
+	void resetBall(){
 		if ( ball != null){
 			Destroy(ball);
 		}
