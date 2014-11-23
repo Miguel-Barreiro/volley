@@ -44,7 +44,11 @@ public class Controller : MonoBehaviour {
 	}
 
 	public void Restart(){
-		Application.LoadLevel("GameScene");
+		Debug.Log("restart");
+		//Application.LoadLevel("GameScene");
+		resetBall();
+		this.scoreLeft = 0;
+		this.scoreRight = 0;
 	}
 
 	public void handleTargetCollision(GameObject target){
