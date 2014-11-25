@@ -123,6 +123,7 @@ public class Controller : MonoBehaviour {
 		checkScore();
 	}
 
+
 	public void ballFallLeft(){
 		this.scoreRight += 1;
 	}

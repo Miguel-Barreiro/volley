@@ -12,41 +12,44 @@ public class PlayerInputController : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(Input.touchCount > 0 && isGrounded){
+		if(Input.touchCount > 0 && this._playerController.IsGrounded()){
 			Vector2 currentPositionScreen = Camera.main.WorldToScreenPoint(transform.position);
 			
 			Touch[] myTouches = Input.touches;
 			for( int i = 0; i < myTouches.Length; i++){
 				//Touch touch = Input.GetTouch(i);
 				Touch touch = myTouches[i];
-				/*
-				Debug.Log(" tcurrentPositionScreen.x > Screen.width = " + (currentPositionScreen.x > Screen.width));
-				Debug.Log(" touch.position.x > Screen.width / 2 = " + (touch.position.x > Screen.width / 2));
-				Debug.Log(" tcurrentPositionScreen.x < Screen.width / 2 = " + (currentPositionScreen.x < Screen.width / 2));
-				Debug.Log(" touch.position.x < Screen.width / 2 = " + (touch.position.x < Screen.width / 2));
-
 				Debug.Log(touch.fingerId);
-*/
+
 				if ( (currentPositionScreen.x > Screen.width / 2 && touch.position.x > Screen.width / 2 ) || 
 				    ( currentPositionScreen.x < Screen.width / 2 && touch.position.x < Screen.width / 2)){
-					
-					if ( touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began ){
-						Vector3 target = Camera.main.ScreenToWorldPoint(touch.position);
-						this.action(target);
-						fingerId = touch.fingerId;
-					}/*else if( touch.phase == TouchPhase.Ended && this.isGrounded){
-						this.jump();
-						this.isGrounded = false;
+					if ( touch.phase == TouchPhase.Began ){
+						controlCharacter(touch);
+						
+					}else if ( touch.phase == TouchPhase.Moved ){
+						//if( touch.deltaPosition.y > Screen.width * 0.05 ){
+						//	this._playerController.jump();
+						//}else{
+							controlCharacter(touch);
+						//}
+					}else if( touch.phase == TouchPhase.Ended && this._playerController.IsGrounded()){
+						this._playerController.jump();
 					}
-					*/
 				}
 			}
 		}
+	}
+
+	private void controlCharacter(Touch touch){
+		Vector3 target = Camera.main.ScreenToWorldPoint(touch.position);
+		this._playerController.action(target);
+		fingerId = touch.fingerId;
 	}
 
 	void OnMouseUp(){
 //		_playerController.jump();
 	}
 
+	private int fingerId = -1;
 	private playerController _playerController;
 }
