@@ -23,17 +23,8 @@ public class PlayerInputController : MonoBehaviour {
 
 				if ( (currentPositionScreen.x > Screen.width / 2 && touch.position.x > Screen.width / 2 ) || 
 				    ( currentPositionScreen.x < Screen.width / 2 && touch.position.x < Screen.width / 2)){
-					if ( touch.phase == TouchPhase.Began ){
+					if ( touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved){
 						controlCharacter(touch);
-						
-					}else if ( touch.phase == TouchPhase.Moved ){
-						//if( touch.deltaPosition.y > Screen.width * 0.05 ){
-						//	this._playerController.jump();
-						//}else{
-							controlCharacter(touch);
-						//}
-					}else if( touch.phase == TouchPhase.Ended && this._playerController.IsGrounded()){
-						this._playerController.jump();
 					}
 				}
 			}
