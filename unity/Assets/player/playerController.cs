@@ -16,21 +16,23 @@ public class playerController : MonoBehaviour {
 	public void action( Vector3 targetPosition){
 		Debug.Log( this.gameObject.name + ":action :" + targetPosition + " " + transform.position);
 		if ( isGrounded ){
-			//target = new Vector2( targetPosition.x, transform.position.y);
-			Vector3 realTarget = targetPosition - transform.position;
+			target = new Vector2( targetPosition.x, transform.position.y);
+//			Vector3 realTarget = targetPosition - transform.position;
 //			realTarget.Normalize();
-			body.velocity = new Vector2( realTarget.x * speed * 10, body.velocity.y);
+//			body.velocity = new Vector2( realTarget.x * speed * 10, body.velocity.y);
 		}
 	}
 
 	void FixedUpdate() {
+		if ( !isGrounded ){
+			body.MovePosition(Vector3.Lerp(transform.position, target, Time.deltaTime * speed));
+		}
 	//	Vector3 realTarget = Vector3.Lerp(transform.position, target, Time.deltaTime * speed);
 	//	body.AddForce(new Vector2(realTarget.x,realTarget.y));
 	}
 
 	public void setGrounded(bool grounded){
 		isGrounded = grounded;
-		target = transform.position;
 	}
 
 	void Update() {}
@@ -46,7 +48,7 @@ public class playerController : MonoBehaviour {
 	}
 
 	private bool isGrounded = false;
-	private Vector2 target; 
+	private Vector2 target;
 	private Rigidbody2D body;
 
 
