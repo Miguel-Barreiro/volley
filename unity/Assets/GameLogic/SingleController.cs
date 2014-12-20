@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SinglePlayerController : MonoBehaviour {
+public class SingleController : MonoBehaviour {
 
 	public Text scoreLabel;
 

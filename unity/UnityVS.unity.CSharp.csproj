@@ -55,10 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameLogic\Controller.cs" />
-    <Compile Include="Assets\GameLogic\SinglePlayerController.cs" />
+    <Compile Include="Assets\GameLogic\SingleController.cs" />
     <Compile Include="Assets\ball\shadowControl.cs" />
     <Compile Include="Assets\player\GroundCheck.cs" />
+    <Compile Include="Assets\player\ISinglePlayerController.cs" />
     <Compile Include="Assets\player\PlayerInputController.cs" />
+    <Compile Include="Assets\player\SinglePlayerController.cs" />
     <Compile Include="Assets\player\playerController.cs" />
     <Compile Include="Assets\stadium\FieldController.cs" />
     <Compile Include="Assets\stadium\FieldLimitController.cs" />
