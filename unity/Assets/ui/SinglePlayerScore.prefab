@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22200000}
   - 114: {fileID: 11400000}
   m_Layer: 5
-  m_Name: LeftScore
+  m_Name: SinglePlayerScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ GameObject:
   - 222: {fileID: 22200002}
   - 114: {fileID: 11400002}
   m_Layer: 5
-  m_Name: LeftPlayerScore
+  m_Name: SinglePlayerScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: a5329e5f2f76b402894dd14d3a8822e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9349e783c34844977b6f6fa3fff5bdae, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -67,12 +67,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .0661764741, g: .0642301068, b: .0642301068, a: .403921574}
+  m_Color: {r: .250980407, g: .196078435, b: .196078435, a: .666666687}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 43
+    m_FontSize: 59
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -106,10 +106,10 @@ RectTransform:
   - {fileID: 22400002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: .601390839, y: .779520571}
-  m_AnchorMax: {x: .710493863, y: 1}
-  m_AnchoredPosition: {x: -200.100006, y: .164979994}
-  m_SizeDelta: {x: 13, y: 0}
+  m_AnchorMin: {x: .427269906, y: .720839381}
+  m_AnchorMax: {x: .597000003, y: 1}
+  m_AnchoredPosition: {x: -1, y: .200004578}
+  m_SizeDelta: {x: 2, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22400002
 RectTransform:
@@ -123,10 +123,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22400000}
   m_RootOrder: 0
-  m_AnchorMin: {x: .170451328, y: .27557379}
-  m_AnchorMax: {x: .759384453, y: .884264648}
-  m_AnchoredPosition: {x: -1, y: .449299812}
-  m_SizeDelta: {x: -1, y: 3.10100174}
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -4, y: 3}
+  m_SizeDelta: {x: 83, y: 68}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
